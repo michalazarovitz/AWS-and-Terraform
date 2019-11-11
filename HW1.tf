@@ -33,7 +33,7 @@ resource "aws_default_vpc" "default" {
 }
 
 resource "aws_ebs_volume" "volume2" {
-  availability_zone = "us-east-1a"
+  availability_zone = "us-east-1b"
   size              = 10
   encrypted = true
   type = "gp2"
@@ -93,10 +93,9 @@ resource "aws_volume_attachment" "volume2Attach" {
 
 provisioner "remote-exec" {
     inline = [
-      
-      "sudo apt-get update",
-      "sudo apt install nginx",
-      "sudo systemctl start nginx"
+      "sudo apt-get update -y",
+      "sudo apt-get install nginx -y",
+      "sudo /etc/init.d/nginx start -y"
 
     ]
   }
