@@ -27,7 +27,7 @@ provider "aws" {
 # RESOURCES
 ##################################################################################
 
-#This uses the default VPC.  It WILL NOT delete it on destroy.
+
 resource "aws_default_vpc" "default" {
 
 }
@@ -95,8 +95,8 @@ provisioner "remote-exec" {
     inline = [
       "sudo apt-get update -y",
       "sudo apt-get install nginx -y",
-           "sudo chmod 666 /var/www/html/index.nginx-debian.html",
-         "echo opschool rules > /var/www/html/index.nginx-debian.html"
+      "sudo chmod 666 /var/www/html/index.nginx-debian.html",
+      "echo opschool rules > /var/www/html/index.nginx-debian.html"
      
 
     ]
